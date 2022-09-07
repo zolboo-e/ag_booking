@@ -1,8 +1,11 @@
 //
+import 'package:async/async.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 //
-import 'common/services/index.dart';
+import '/common/providers/index.dart';
+import '/common/services/index.dart';
 import '/modules/auth/index.dart';
 import '/modules/bookings/index.dart';
 import '/modules/others/index.dart';
@@ -15,7 +18,7 @@ GoRouter generateRouter(WidgetRef ref) {
       // main route
       GoRoute(
         path: '/',
-        redirect: (_) => '/tabs/bookings',
+        redirect: (_) => '/tabs${items.keys.first}',
       ),
       GoRoute(
         path: '/tabs/:routeName',
@@ -61,8 +64,28 @@ GoRouter generateRouter(WidgetRef ref) {
         path: WelcomePage.routeName,
         builder: (_, __) => const WelcomePage(),
       ),
+      // error routes
+      GoRoute(
+        path: DisconnectedPage.routeName,
+        builder: (_, __) => const DisconnectedPage(),
+      ),
     ],
     redirect: (state) {
+      // connectivity
+      final connectivity = ref.read(connectivityProvider);
+      final isDisconnected = connectivity == ConnectivityResult.none;
+      final onDisconnectedPage = state.subloc == DisconnectedPage.routeName;
+      final isConnected = [ConnectivityResult.mobile, ConnectivityResult.wifi]
+          .contains(connectivity);
+
+      if (isDisconnected && !onDisconnectedPage) {
+        return DisconnectedPage.routeName;
+      }
+      if (isConnected && onDisconnectedPage) {
+        return '/';
+      }
+
+      // auth
       final token = ref.read(accessTokenProvider);
       final isLoggedIn = token?.isNotEmpty ?? false;
       final isAuthRoute = _authRoutes.contains(state.subloc);
@@ -78,7 +101,10 @@ GoRouter generateRouter(WidgetRef ref) {
     },
     // https://github.com/lucavenir/go_router_riverpod/tree/master/lib
     refreshListenable: GoRouterRefreshStream(
-      ref.watch(accessTokenProvider.notifier).stream,
+      StreamGroup.merge([
+        ref.watch(accessTokenProvider.notifier).stream,
+        ref.watch(connectivityProvider.notifier).stream,
+      ]),
     ),
     errorBuilder: (context, state) => ErrorPage(error: state.error),
   );

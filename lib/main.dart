@@ -1,9 +1,11 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 //
-import 'common/services/index.dart';
-import 'modules/bookings/providers/index.dart';
-import 'modules/bookings/services/index.dart';
+import '/common/providers/index.dart';
+import '/common/services/index.dart';
+import '/modules/bookings/providers/index.dart';
+import '/modules/bookings/services/index.dart';
 //
 import 'app.dart';
 
@@ -15,9 +17,7 @@ void main() async {
     ],
   );
 
-  await _setupApp();
-  await _loadAccessToken(container.read);
-  await _loadConfigs(container.read);
+  await _setupApp(container);
 
   runApp(
     UncontrolledProviderScope(
@@ -27,8 +27,26 @@ void main() async {
   );
 }
 
-Future<void> _setupApp() async {
+Future<void> _setupApp(ProviderContainer container) async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  container.listen(
+    connectivityStreamProvider,
+    (previous, next) => next.whenData((value) {
+      final current = container.read(connectivityProvider);
+      if (current != value) {
+        container.read(connectivityProvider.notifier).state = value;
+      }
+    }),
+  );
+
+  await _loadAccessToken(container.read);
+
+  final connectivity = await Connectivity().checkConnectivity();
+  if ([ConnectivityResult.wifi, ConnectivityResult.mobile]
+      .contains(connectivity)) {
+    // await _loadConfigs(container.read);
+  }
 }
 
 Future<void> _loadConfigs(Reader read) async {

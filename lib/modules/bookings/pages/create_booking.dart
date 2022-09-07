@@ -43,11 +43,6 @@ class _CreateBookingPageView extends ConsumerWidget {
         child: Column(
           children: [
             DropdownButtonFormField(
-              icon: const SizedBox(
-                width: 24,
-                height: 24,
-                child: CircularProgressIndicator(),
-              ),
               decoration: const InputDecoration(labelText: 'Brand'),
               value: brand,
               items: brands

@@ -13,7 +13,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
     super.key,
     required this.currentRoute,
     routes,
-  }) : routes = routes ?? _items;
+  }) : routes = routes ?? items;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class CustomBottomNavigationBarItem {
   final Widget page;
 }
 
-const _items = {
+const items = {
   BookingsPage.routeName: CustomBottomNavigationBarItem(
     destination: NavigationDestination(
       icon: Icon(Icons.calendar_month_outlined),
