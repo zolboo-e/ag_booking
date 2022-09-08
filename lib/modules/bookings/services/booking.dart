@@ -23,6 +23,15 @@ abstract class _IBookingRepository {
     required String serviceId,
     required DateTime date,
   });
+  Future<void> createBooking({
+    required String phoneNumber,
+    required String serviceId,
+    required DateTime date,
+    required String timeRange,
+    required String plateNumber,
+    int? mileage,
+    String? jobInstruction,
+  });
 }
 
 class _BookingRepository implements _IBookingRepository {
@@ -83,5 +92,33 @@ class _BookingRepository implements _IBookingRepository {
     final data = List<String>.from(response.data['data']['finalslot']);
 
     return data;
+  }
+
+  @override
+  Future<void> createBooking({
+    required String phoneNumber,
+    required String serviceId,
+    required DateTime date,
+    required String timeRange,
+    required String plateNumber,
+    int? mileage,
+    String? jobInstruction,
+  }) async {
+    const url = '/ap/bookingstore';
+    final payload = {
+      'mobile': phoneNumber,
+      'serviceid': serviceId,
+      'booking_date': DateFormat('yyyy-MM-dd').format(date),
+      'booking_time': timeRange,
+      'carnumber': plateNumber,
+    };
+    if (mileage != null) {
+      payload['kilo'] = '$mileage';
+    }
+    if (jobInstruction != null) {
+      payload['description'] = jobInstruction;
+    }
+
+    await client.post(url, data: payload);
   }
 }

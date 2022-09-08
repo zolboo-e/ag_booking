@@ -1,11 +1,13 @@
 //
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+
 //
-import '/common/components/index.dart';
 import '/common/models/index.dart';
 import '/modules/bookings/providers/index.dart';
+import '/modules/bookings/services/index.dart';
 
 class CreateBookingPage extends StatelessWidget {
   static const routeName = '/create_booking';
@@ -32,7 +34,7 @@ class _CreateBookingPageView extends ConsumerWidget {
       key: formKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: Column(
+        child: ListView(
           children: [
             _ManufacturerDropdown(),
             _ModelDropdown(),
@@ -42,19 +44,8 @@ class _CreateBookingPageView extends ConsumerWidget {
             _TimeRangeDropdown(),
             _RequestPickupSwitch(),
             _JobInstructionsTextField(),
-            // CustomElevatedButton(
-            //   onPressed: state.maybeWhen(
-            //     loading: null,
-            //     orElse: () => () => ref
-            //         .read(loginPageControllerProvider.notifier)
-            //         .login(userNameController.text, passwordController.text),
-            //   ),
-            //   style: ElevatedButton.styleFrom(
-            //     minimumSize: const Size.fromHeight(50),
-            //   ),
-            //   isLoading: state is AsyncLoading,
-            //   child: const Text('Submit'),
-            // )
+            const SizedBox(height: 80),
+            _SubmitButton(),
           ],
         ),
       ),
@@ -321,6 +312,59 @@ class _JobInstructionsTextField extends ConsumerWidget {
         labelText: 'Job instructions',
         hintText: 'Add instructions here',
       ),
+    );
+  }
+}
+
+class _SubmitButton extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size.fromHeight(50),
+      ),
+      onPressed: () async {
+        await showDialog<bool>(
+          context: context,
+          builder: (_) => _SubmitDialog(),
+        );
+      },
+      child: const Text('Submit'),
+    );
+  }
+}
+
+class _SubmitDialog extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final service = ref.watch(_selectedServiceProvider);
+    final date = ref.watch(_selectedDateProvider);
+    final timeRange = ref.watch(_selectedTimeRangeProvider);
+
+    return AlertDialog(
+      title: const Text('Are you sure?'),
+      actions: <Widget>[
+        TextButton(
+          child: const Text('Cancel'),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        TextButton(
+          child: const Text('Submit'),
+          onPressed: () async {
+            final repository = ref.read(bookingRepositoryProvider);
+            await repository.createBooking(
+              phoneNumber: '99505251',
+              serviceId: service!.id,
+              date: date!,
+              timeRange: timeRange!,
+              plateNumber: '6510УНЧ',
+            );
+            context.go('/');
+          },
+        ),
+      ],
     );
   }
 }
