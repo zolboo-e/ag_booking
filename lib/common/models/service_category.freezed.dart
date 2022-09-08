@@ -18,8 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ServiceCategory {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get parentId => throw _privateConstructorUsedError;
-  List<ServiceCategory> get children => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ServiceCategoryCopyWith<ServiceCategory> get copyWith =>
@@ -31,11 +29,7 @@ abstract class $ServiceCategoryCopyWith<$Res> {
   factory $ServiceCategoryCopyWith(
           ServiceCategory value, $Res Function(ServiceCategory) then) =
       _$ServiceCategoryCopyWithImpl<$Res>;
-  $Res call(
-      {String id,
-      String name,
-      String parentId,
-      List<ServiceCategory> children});
+  $Res call({String id, String name});
 }
 
 /// @nodoc
@@ -51,8 +45,6 @@ class _$ServiceCategoryCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? parentId = freezed,
-    Object? children = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -63,14 +55,6 @@ class _$ServiceCategoryCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      parentId: parentId == freezed
-          ? _value.parentId
-          : parentId // ignore: cast_nullable_to_non_nullable
-              as String,
-      children: children == freezed
-          ? _value.children
-          : children // ignore: cast_nullable_to_non_nullable
-              as List<ServiceCategory>,
     ));
   }
 }
@@ -82,11 +66,7 @@ abstract class _$$_ServiceCategoryCopyWith<$Res>
           _$_ServiceCategory value, $Res Function(_$_ServiceCategory) then) =
       __$$_ServiceCategoryCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String id,
-      String name,
-      String parentId,
-      List<ServiceCategory> children});
+  $Res call({String id, String name});
 }
 
 /// @nodoc
@@ -104,8 +84,6 @@ class __$$_ServiceCategoryCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? parentId = freezed,
-    Object? children = freezed,
   }) {
     return _then(_$_ServiceCategory(
       id: id == freezed
@@ -116,14 +94,6 @@ class __$$_ServiceCategoryCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      parentId: parentId == freezed
-          ? _value.parentId
-          : parentId // ignore: cast_nullable_to_non_nullable
-              as String,
-      children: children == freezed
-          ? _value._children
-          : children // ignore: cast_nullable_to_non_nullable
-              as List<ServiceCategory>,
     ));
   }
 }
@@ -131,29 +101,16 @@ class __$$_ServiceCategoryCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ServiceCategory implements _ServiceCategory {
-  const _$_ServiceCategory(
-      {required this.id,
-      required this.name,
-      required this.parentId,
-      required final List<ServiceCategory> children})
-      : _children = children;
+  const _$_ServiceCategory({required this.id, required this.name});
 
   @override
   final String id;
   @override
   final String name;
-  @override
-  final String parentId;
-  final List<ServiceCategory> _children;
-  @override
-  List<ServiceCategory> get children {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_children);
-  }
 
   @override
   String toString() {
-    return 'ServiceCategory(id: $id, name: $name, parentId: $parentId, children: $children)';
+    return 'ServiceCategory(id: $id, name: $name)';
   }
 
   @override
@@ -162,18 +119,14 @@ class _$_ServiceCategory implements _ServiceCategory {
         (other.runtimeType == runtimeType &&
             other is _$_ServiceCategory &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.parentId, parentId) &&
-            const DeepCollectionEquality().equals(other._children, _children));
+            const DeepCollectionEquality().equals(other.name, name));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(parentId),
-      const DeepCollectionEquality().hash(_children));
+      const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
   @override
@@ -184,18 +137,12 @@ class _$_ServiceCategory implements _ServiceCategory {
 abstract class _ServiceCategory implements ServiceCategory {
   const factory _ServiceCategory(
       {required final String id,
-      required final String name,
-      required final String parentId,
-      required final List<ServiceCategory> children}) = _$_ServiceCategory;
+      required final String name}) = _$_ServiceCategory;
 
   @override
   String get id;
   @override
   String get name;
-  @override
-  String get parentId;
-  @override
-  List<ServiceCategory> get children;
   @override
   @JsonKey(ignore: true)
   _$$_ServiceCategoryCopyWith<_$_ServiceCategory> get copyWith =>

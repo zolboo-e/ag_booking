@@ -45,15 +45,19 @@ Future<void> _setupApp(ProviderContainer container) async {
   final connectivity = await Connectivity().checkConnectivity();
   if ([ConnectivityResult.wifi, ConnectivityResult.mobile]
       .contains(connectivity)) {
-    // await _loadConfigs(container.read);
+    await _loadConfigs(container.read);
   }
 }
 
 Future<void> _loadConfigs(Reader read) async {
-  final brands = await read(bookingRepositoryProvider).getBrands();
-  read(brandsProvider.notifier).state = brands;
+  final manufacturers = await read(
+    bookingRepositoryProvider,
+  ).getManufacturers();
+  read(manufacturersProvider.notifier).state = manufacturers;
 
-  final categories = await read(bookingRepositoryProvider).getCategories();
+  final categories = await read(
+    bookingRepositoryProvider,
+  ).getCategories();
   read(serviceCategoriesProvider.notifier).state = categories;
 }
 

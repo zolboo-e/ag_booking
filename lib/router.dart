@@ -36,20 +36,6 @@ GoRouter generateRouter(WidgetRef ref) {
         path: CreateBookingPage.routeName,
         builder: (_, __) => const CreateBookingPage(),
       ),
-      GoRoute(
-          path: MainServiceCategoriesPage.routeName,
-          builder: (_, __) => const MainServiceCategoriesPage(),
-          routes: [
-            GoRoute(
-              path:
-                  '${SubServiceCategoriesPage.routeName.replaceFirst('/', '')}/:mainCategoryId',
-              builder: (_, state) {
-                final mainCategoryId = state.params['mainCategoryId']!;
-
-                return SubServiceCategoriesPage(mainCategoryId: mainCategoryId);
-              },
-            ),
-          ]),
 
       // auth routes
       GoRoute(

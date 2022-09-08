@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Booking {
   String get id => throw _privateConstructorUsedError;
   Organization get organization => throw _privateConstructorUsedError;
-  Branch get branch => throw _privateConstructorUsedError;
+  ServiceCenter get serviceCenter => throw _privateConstructorUsedError;
   Service get service => throw _privateConstructorUsedError;
   DateTime get startDate => throw _privateConstructorUsedError;
   DateTime get endDate => throw _privateConstructorUsedError;
@@ -34,13 +34,13 @@ abstract class $BookingCopyWith<$Res> {
   $Res call(
       {String id,
       Organization organization,
-      Branch branch,
+      ServiceCenter serviceCenter,
       Service service,
       DateTime startDate,
       DateTime endDate});
 
   $OrganizationCopyWith<$Res> get organization;
-  $BranchCopyWith<$Res> get branch;
+  $ServiceCenterCopyWith<$Res> get serviceCenter;
   $ServiceCopyWith<$Res> get service;
 }
 
@@ -56,7 +56,7 @@ class _$BookingCopyWithImpl<$Res> implements $BookingCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? organization = freezed,
-    Object? branch = freezed,
+    Object? serviceCenter = freezed,
     Object? service = freezed,
     Object? startDate = freezed,
     Object? endDate = freezed,
@@ -70,10 +70,10 @@ class _$BookingCopyWithImpl<$Res> implements $BookingCopyWith<$Res> {
           ? _value.organization
           : organization // ignore: cast_nullable_to_non_nullable
               as Organization,
-      branch: branch == freezed
-          ? _value.branch
-          : branch // ignore: cast_nullable_to_non_nullable
-              as Branch,
+      serviceCenter: serviceCenter == freezed
+          ? _value.serviceCenter
+          : serviceCenter // ignore: cast_nullable_to_non_nullable
+              as ServiceCenter,
       service: service == freezed
           ? _value.service
           : service // ignore: cast_nullable_to_non_nullable
@@ -97,9 +97,9 @@ class _$BookingCopyWithImpl<$Res> implements $BookingCopyWith<$Res> {
   }
 
   @override
-  $BranchCopyWith<$Res> get branch {
-    return $BranchCopyWith<$Res>(_value.branch, (value) {
-      return _then(_value.copyWith(branch: value));
+  $ServiceCenterCopyWith<$Res> get serviceCenter {
+    return $ServiceCenterCopyWith<$Res>(_value.serviceCenter, (value) {
+      return _then(_value.copyWith(serviceCenter: value));
     });
   }
 
@@ -120,7 +120,7 @@ abstract class _$$_BookingCopyWith<$Res> implements $BookingCopyWith<$Res> {
   $Res call(
       {String id,
       Organization organization,
-      Branch branch,
+      ServiceCenter serviceCenter,
       Service service,
       DateTime startDate,
       DateTime endDate});
@@ -128,7 +128,7 @@ abstract class _$$_BookingCopyWith<$Res> implements $BookingCopyWith<$Res> {
   @override
   $OrganizationCopyWith<$Res> get organization;
   @override
-  $BranchCopyWith<$Res> get branch;
+  $ServiceCenterCopyWith<$Res> get serviceCenter;
   @override
   $ServiceCopyWith<$Res> get service;
 }
@@ -146,7 +146,7 @@ class __$$_BookingCopyWithImpl<$Res> extends _$BookingCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? organization = freezed,
-    Object? branch = freezed,
+    Object? serviceCenter = freezed,
     Object? service = freezed,
     Object? startDate = freezed,
     Object? endDate = freezed,
@@ -160,10 +160,10 @@ class __$$_BookingCopyWithImpl<$Res> extends _$BookingCopyWithImpl<$Res>
           ? _value.organization
           : organization // ignore: cast_nullable_to_non_nullable
               as Organization,
-      branch: branch == freezed
-          ? _value.branch
-          : branch // ignore: cast_nullable_to_non_nullable
-              as Branch,
+      serviceCenter: serviceCenter == freezed
+          ? _value.serviceCenter
+          : serviceCenter // ignore: cast_nullable_to_non_nullable
+              as ServiceCenter,
       service: service == freezed
           ? _value.service
           : service // ignore: cast_nullable_to_non_nullable
@@ -186,7 +186,7 @@ class _$_Booking implements _Booking {
   const _$_Booking(
       {required this.id,
       required this.organization,
-      required this.branch,
+      required this.serviceCenter,
       required this.service,
       required this.startDate,
       required this.endDate});
@@ -196,7 +196,7 @@ class _$_Booking implements _Booking {
   @override
   final Organization organization;
   @override
-  final Branch branch;
+  final ServiceCenter serviceCenter;
   @override
   final Service service;
   @override
@@ -206,7 +206,7 @@ class _$_Booking implements _Booking {
 
   @override
   String toString() {
-    return 'Booking(id: $id, organization: $organization, branch: $branch, service: $service, startDate: $startDate, endDate: $endDate)';
+    return 'Booking(id: $id, organization: $organization, serviceCenter: $serviceCenter, service: $service, startDate: $startDate, endDate: $endDate)';
   }
 
   @override
@@ -217,7 +217,8 @@ class _$_Booking implements _Booking {
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.organization, organization) &&
-            const DeepCollectionEquality().equals(other.branch, branch) &&
+            const DeepCollectionEquality()
+                .equals(other.serviceCenter, serviceCenter) &&
             const DeepCollectionEquality().equals(other.service, service) &&
             const DeepCollectionEquality().equals(other.startDate, startDate) &&
             const DeepCollectionEquality().equals(other.endDate, endDate));
@@ -228,7 +229,7 @@ class _$_Booking implements _Booking {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(organization),
-      const DeepCollectionEquality().hash(branch),
+      const DeepCollectionEquality().hash(serviceCenter),
       const DeepCollectionEquality().hash(service),
       const DeepCollectionEquality().hash(startDate),
       const DeepCollectionEquality().hash(endDate));
@@ -243,7 +244,7 @@ abstract class _Booking implements Booking {
   const factory _Booking(
       {required final String id,
       required final Organization organization,
-      required final Branch branch,
+      required final ServiceCenter serviceCenter,
       required final Service service,
       required final DateTime startDate,
       required final DateTime endDate}) = _$_Booking;
@@ -253,7 +254,7 @@ abstract class _Booking implements Booking {
   @override
   Organization get organization;
   @override
-  Branch get branch;
+  ServiceCenter get serviceCenter;
   @override
   Service get service;
   @override

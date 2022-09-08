@@ -8,8 +8,8 @@ part 'availability_provider.freezed.dart';
 @freezed
 class AvailabilityProvider with _$AvailabilityProvider {
   const factory AvailabilityProvider({
-    required String branchId,
-    required String serviceId,
-    required DateTime date,
+    required String? serviceId,
+    required String? serviceCenterId,
+    required DateTime? date,
   }) = _AvailabilityProvider;
 }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'branch.dart';
+part of 'service_center.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Branch {
+mixin _$ServiceCenter {
   String get address => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -24,13 +24,15 @@ mixin _$Branch {
   List<Service> get services => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $BranchCopyWith<Branch> get copyWith => throw _privateConstructorUsedError;
+  $ServiceCenterCopyWith<ServiceCenter> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BranchCopyWith<$Res> {
-  factory $BranchCopyWith(Branch value, $Res Function(Branch) then) =
-      _$BranchCopyWithImpl<$Res>;
+abstract class $ServiceCenterCopyWith<$Res> {
+  factory $ServiceCenterCopyWith(
+          ServiceCenter value, $Res Function(ServiceCenter) then) =
+      _$ServiceCenterCopyWithImpl<$Res>;
   $Res call(
       {String address,
       String id,
@@ -43,12 +45,13 @@ abstract class $BranchCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$BranchCopyWithImpl<$Res> implements $BranchCopyWith<$Res> {
-  _$BranchCopyWithImpl(this._value, this._then);
+class _$ServiceCenterCopyWithImpl<$Res>
+    implements $ServiceCenterCopyWith<$Res> {
+  _$ServiceCenterCopyWithImpl(this._value, this._then);
 
-  final Branch _value;
+  final ServiceCenter _value;
   // ignore: unused_field
-  final $Res Function(Branch) _then;
+  final $Res Function(ServiceCenter) _then;
 
   @override
   $Res call({
@@ -96,9 +99,11 @@ class _$BranchCopyWithImpl<$Res> implements $BranchCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_BranchCopyWith<$Res> implements $BranchCopyWith<$Res> {
-  factory _$$_BranchCopyWith(_$_Branch value, $Res Function(_$_Branch) then) =
-      __$$_BranchCopyWithImpl<$Res>;
+abstract class _$$_ServiceCenterCopyWith<$Res>
+    implements $ServiceCenterCopyWith<$Res> {
+  factory _$$_ServiceCenterCopyWith(
+          _$_ServiceCenter value, $Res Function(_$_ServiceCenter) then) =
+      __$$_ServiceCenterCopyWithImpl<$Res>;
   @override
   $Res call(
       {String address,
@@ -113,13 +118,15 @@ abstract class _$$_BranchCopyWith<$Res> implements $BranchCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_BranchCopyWithImpl<$Res> extends _$BranchCopyWithImpl<$Res>
-    implements _$$_BranchCopyWith<$Res> {
-  __$$_BranchCopyWithImpl(_$_Branch _value, $Res Function(_$_Branch) _then)
-      : super(_value, (v) => _then(v as _$_Branch));
+class __$$_ServiceCenterCopyWithImpl<$Res>
+    extends _$ServiceCenterCopyWithImpl<$Res>
+    implements _$$_ServiceCenterCopyWith<$Res> {
+  __$$_ServiceCenterCopyWithImpl(
+      _$_ServiceCenter _value, $Res Function(_$_ServiceCenter) _then)
+      : super(_value, (v) => _then(v as _$_ServiceCenter));
 
   @override
-  _$_Branch get _value => super._value as _$_Branch;
+  _$_ServiceCenter get _value => super._value as _$_ServiceCenter;
 
   @override
   $Res call({
@@ -130,7 +137,7 @@ class __$$_BranchCopyWithImpl<$Res> extends _$BranchCopyWithImpl<$Res>
     Object? phoneNumber = freezed,
     Object? services = freezed,
   }) {
-    return _then(_$_Branch(
+    return _then(_$_ServiceCenter(
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -161,8 +168,8 @@ class __$$_BranchCopyWithImpl<$Res> extends _$BranchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Branch implements _Branch {
-  const _$_Branch(
+class _$_ServiceCenter implements _ServiceCenter {
+  const _$_ServiceCenter(
       {required this.address,
       required this.id,
       required this.name,
@@ -190,14 +197,14 @@ class _$_Branch implements _Branch {
 
   @override
   String toString() {
-    return 'Branch(address: $address, id: $id, name: $name, parent: $parent, phoneNumber: $phoneNumber, services: $services)';
+    return 'ServiceCenter(address: $address, id: $id, name: $name, parent: $parent, phoneNumber: $phoneNumber, services: $services)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Branch &&
+            other is _$_ServiceCenter &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
@@ -219,18 +226,18 @@ class _$_Branch implements _Branch {
 
   @JsonKey(ignore: true)
   @override
-  _$$_BranchCopyWith<_$_Branch> get copyWith =>
-      __$$_BranchCopyWithImpl<_$_Branch>(this, _$identity);
+  _$$_ServiceCenterCopyWith<_$_ServiceCenter> get copyWith =>
+      __$$_ServiceCenterCopyWithImpl<_$_ServiceCenter>(this, _$identity);
 }
 
-abstract class _Branch implements Branch {
-  const factory _Branch(
+abstract class _ServiceCenter implements ServiceCenter {
+  const factory _ServiceCenter(
       {required final String address,
       required final String id,
       required final String name,
       required final Organization parent,
       required final String phoneNumber,
-      required final List<Service> services}) = _$_Branch;
+      required final List<Service> services}) = _$_ServiceCenter;
 
   @override
   String get address;
@@ -246,6 +253,6 @@ abstract class _Branch implements Branch {
   List<Service> get services;
   @override
   @JsonKey(ignore: true)
-  _$$_BranchCopyWith<_$_Branch> get copyWith =>
+  _$$_ServiceCenterCopyWith<_$_ServiceCenter> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -5,23 +5,23 @@ import 'package:flutter/foundation.dart';
 import 'organization.dart';
 import 'service.dart';
 
-part 'branch.freezed.dart';
+part 'service_center.freezed.dart';
 
 @freezed
-class Branch with _$Branch {
-  const factory Branch({
+class ServiceCenter with _$ServiceCenter {
+  const factory ServiceCenter({
     required String address,
     required String id,
     required String name,
     required Organization parent,
     required String phoneNumber,
     required List<Service> services,
-  }) = _Branch;
+  }) = _ServiceCenter;
 
-  factory Branch.fromJson(Map<String, dynamic> json) {
+  factory ServiceCenter.fromJson(Map<String, dynamic> json) {
     final services = List<Map<String, dynamic>>.from(json['services']);
 
-    return Branch(
+    return ServiceCenter(
       address: json['address'],
       id: json['id'].toString(),
       name: json['name'],

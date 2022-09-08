@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'brand.dart';
+part of 'manufacturer.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,28 +15,30 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Brand {
+mixin _$Manufacturer {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $BrandCopyWith<Brand> get copyWith => throw _privateConstructorUsedError;
+  $ManufacturerCopyWith<Manufacturer> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BrandCopyWith<$Res> {
-  factory $BrandCopyWith(Brand value, $Res Function(Brand) then) =
-      _$BrandCopyWithImpl<$Res>;
+abstract class $ManufacturerCopyWith<$Res> {
+  factory $ManufacturerCopyWith(
+          Manufacturer value, $Res Function(Manufacturer) then) =
+      _$ManufacturerCopyWithImpl<$Res>;
   $Res call({String id, String name});
 }
 
 /// @nodoc
-class _$BrandCopyWithImpl<$Res> implements $BrandCopyWith<$Res> {
-  _$BrandCopyWithImpl(this._value, this._then);
+class _$ManufacturerCopyWithImpl<$Res> implements $ManufacturerCopyWith<$Res> {
+  _$ManufacturerCopyWithImpl(this._value, this._then);
 
-  final Brand _value;
+  final Manufacturer _value;
   // ignore: unused_field
-  final $Res Function(Brand) _then;
+  final $Res Function(Manufacturer) _then;
 
   @override
   $Res call({
@@ -57,28 +59,32 @@ class _$BrandCopyWithImpl<$Res> implements $BrandCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_BrandCopyWith<$Res> implements $BrandCopyWith<$Res> {
-  factory _$$_BrandCopyWith(_$_Brand value, $Res Function(_$_Brand) then) =
-      __$$_BrandCopyWithImpl<$Res>;
+abstract class _$$_ManufacturerCopyWith<$Res>
+    implements $ManufacturerCopyWith<$Res> {
+  factory _$$_ManufacturerCopyWith(
+          _$_Manufacturer value, $Res Function(_$_Manufacturer) then) =
+      __$$_ManufacturerCopyWithImpl<$Res>;
   @override
   $Res call({String id, String name});
 }
 
 /// @nodoc
-class __$$_BrandCopyWithImpl<$Res> extends _$BrandCopyWithImpl<$Res>
-    implements _$$_BrandCopyWith<$Res> {
-  __$$_BrandCopyWithImpl(_$_Brand _value, $Res Function(_$_Brand) _then)
-      : super(_value, (v) => _then(v as _$_Brand));
+class __$$_ManufacturerCopyWithImpl<$Res>
+    extends _$ManufacturerCopyWithImpl<$Res>
+    implements _$$_ManufacturerCopyWith<$Res> {
+  __$$_ManufacturerCopyWithImpl(
+      _$_Manufacturer _value, $Res Function(_$_Manufacturer) _then)
+      : super(_value, (v) => _then(v as _$_Manufacturer));
 
   @override
-  _$_Brand get _value => super._value as _$_Brand;
+  _$_Manufacturer get _value => super._value as _$_Manufacturer;
 
   @override
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
   }) {
-    return _then(_$_Brand(
+    return _then(_$_Manufacturer(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -93,8 +99,8 @@ class __$$_BrandCopyWithImpl<$Res> extends _$BrandCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Brand implements _Brand {
-  const _$_Brand({required this.id, required this.name});
+class _$_Manufacturer implements _Manufacturer {
+  const _$_Manufacturer({required this.id, required this.name});
 
   @override
   final String id;
@@ -103,14 +109,14 @@ class _$_Brand implements _Brand {
 
   @override
   String toString() {
-    return 'Brand(id: $id, name: $name)';
+    return 'Manufacturer(id: $id, name: $name)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Brand &&
+            other is _$_Manufacturer &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name));
   }
@@ -123,13 +129,13 @@ class _$_Brand implements _Brand {
 
   @JsonKey(ignore: true)
   @override
-  _$$_BrandCopyWith<_$_Brand> get copyWith =>
-      __$$_BrandCopyWithImpl<_$_Brand>(this, _$identity);
+  _$$_ManufacturerCopyWith<_$_Manufacturer> get copyWith =>
+      __$$_ManufacturerCopyWithImpl<_$_Manufacturer>(this, _$identity);
 }
 
-abstract class _Brand implements Brand {
-  const factory _Brand({required final String id, required final String name}) =
-      _$_Brand;
+abstract class _Manufacturer implements Manufacturer {
+  const factory _Manufacturer(
+      {required final String id, required final String name}) = _$_Manufacturer;
 
   @override
   String get id;
@@ -137,6 +143,6 @@ abstract class _Brand implements Brand {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_BrandCopyWith<_$_Brand> get copyWith =>
+  _$$_ManufacturerCopyWith<_$_Manufacturer> get copyWith =>
       throw _privateConstructorUsedError;
 }

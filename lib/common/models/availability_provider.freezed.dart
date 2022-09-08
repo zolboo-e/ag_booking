@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AvailabilityProvider {
-  String get branchId => throw _privateConstructorUsedError;
-  String get serviceId => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  String? get serviceId => throw _privateConstructorUsedError;
+  String? get serviceCenterId => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AvailabilityProviderCopyWith<AvailabilityProvider> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $AvailabilityProviderCopyWith<$Res> {
   factory $AvailabilityProviderCopyWith(AvailabilityProvider value,
           $Res Function(AvailabilityProvider) then) =
       _$AvailabilityProviderCopyWithImpl<$Res>;
-  $Res call({String branchId, String serviceId, DateTime date});
+  $Res call({String? serviceId, String? serviceCenterId, DateTime? date});
 }
 
 /// @nodoc
@@ -44,23 +44,23 @@ class _$AvailabilityProviderCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? branchId = freezed,
     Object? serviceId = freezed,
+    Object? serviceCenterId = freezed,
     Object? date = freezed,
   }) {
     return _then(_value.copyWith(
-      branchId: branchId == freezed
-          ? _value.branchId
-          : branchId // ignore: cast_nullable_to_non_nullable
-              as String,
       serviceId: serviceId == freezed
           ? _value.serviceId
           : serviceId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      serviceCenterId: serviceCenterId == freezed
+          ? _value.serviceCenterId
+          : serviceCenterId // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -72,7 +72,7 @@ abstract class _$$_AvailabilityProviderCopyWith<$Res>
           $Res Function(_$_AvailabilityProvider) then) =
       __$$_AvailabilityProviderCopyWithImpl<$Res>;
   @override
-  $Res call({String branchId, String serviceId, DateTime date});
+  $Res call({String? serviceId, String? serviceCenterId, DateTime? date});
 }
 
 /// @nodoc
@@ -88,23 +88,23 @@ class __$$_AvailabilityProviderCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? branchId = freezed,
     Object? serviceId = freezed,
+    Object? serviceCenterId = freezed,
     Object? date = freezed,
   }) {
     return _then(_$_AvailabilityProvider(
-      branchId: branchId == freezed
-          ? _value.branchId
-          : branchId // ignore: cast_nullable_to_non_nullable
-              as String,
       serviceId: serviceId == freezed
           ? _value.serviceId
           : serviceId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      serviceCenterId: serviceCenterId == freezed
+          ? _value.serviceCenterId
+          : serviceCenterId // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -113,18 +113,20 @@ class __$$_AvailabilityProviderCopyWithImpl<$Res>
 
 class _$_AvailabilityProvider implements _AvailabilityProvider {
   const _$_AvailabilityProvider(
-      {required this.branchId, required this.serviceId, required this.date});
+      {required this.serviceId,
+      required this.serviceCenterId,
+      required this.date});
 
   @override
-  final String branchId;
+  final String? serviceId;
   @override
-  final String serviceId;
+  final String? serviceCenterId;
   @override
-  final DateTime date;
+  final DateTime? date;
 
   @override
   String toString() {
-    return 'AvailabilityProvider(branchId: $branchId, serviceId: $serviceId, date: $date)';
+    return 'AvailabilityProvider(serviceId: $serviceId, serviceCenterId: $serviceCenterId, date: $date)';
   }
 
   @override
@@ -132,16 +134,17 @@ class _$_AvailabilityProvider implements _AvailabilityProvider {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AvailabilityProvider &&
-            const DeepCollectionEquality().equals(other.branchId, branchId) &&
             const DeepCollectionEquality().equals(other.serviceId, serviceId) &&
+            const DeepCollectionEquality()
+                .equals(other.serviceCenterId, serviceCenterId) &&
             const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(branchId),
       const DeepCollectionEquality().hash(serviceId),
+      const DeepCollectionEquality().hash(serviceCenterId),
       const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
@@ -153,16 +156,16 @@ class _$_AvailabilityProvider implements _AvailabilityProvider {
 
 abstract class _AvailabilityProvider implements AvailabilityProvider {
   const factory _AvailabilityProvider(
-      {required final String branchId,
-      required final String serviceId,
-      required final DateTime date}) = _$_AvailabilityProvider;
+      {required final String? serviceId,
+      required final String? serviceCenterId,
+      required final DateTime? date}) = _$_AvailabilityProvider;
 
   @override
-  String get branchId;
+  String? get serviceId;
   @override
-  String get serviceId;
+  String? get serviceCenterId;
   @override
-  DateTime get date;
+  DateTime? get date;
   @override
   @JsonKey(ignore: true)
   _$$_AvailabilityProviderCopyWith<_$_AvailabilityProvider> get copyWith =>
